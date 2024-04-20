@@ -19,10 +19,10 @@ For this assignment, you'll be writing four interrelated classes:
  - The `Car` class (`Car.java`) will be used as a container for `Passenger` objects
  - and the `Train` (`Train.java`) class will tie them all together
  
- You'll also notice a 5th file in the repository (`FuelType.java`), which contains something that looks like an extremely simple class:
+ You'll also notice a 5th file in the repository (`FuelType.java`), which contains something that looks like an extremely simple class:       
  ```
 public enum FuelType {
-    STEAM, INTERNAL_COMBUSTION, ELECTRIC, OTHER;
+    STEAM, INTERNAL_COMBUSTION, ELECTRIC, OTHER;  
 }
 ```
 In Java, we can use the keyword `enum` to establish simple type that must take as its value one of a set of predefined constant values. We'll use this in the `Engine` class instead of a `String` to keep track of what kind of fuel the `Engine` uses. You don't need to change this file, but you can use the values it contains like this:
@@ -36,7 +36,7 @@ FuelType f = FuelType.ELECTRIC;
 Let's pause a moment to think about the different kinds of relationships we'll want to establish:
 
  - The `Train` class will have a relationship with the `Engine` class, because the `Engine` is responsible for powering the `Train`.
- - The `Train` class also has a relationship with the `Car` class: the `Train` has a collection of `Cars` associated with it at any given time, and you can add / remove `Cars` as necessary (without destroying either the `Train` or the `Cars` themselves).
+ - The `Train` class also has a relationship with the `Car` class: the `Train` has a collection of `Cars` associated with it at any given time, and you can add / remove `Cars` as necessary (without destroying either the `Train` or the `Cars` themselves).   
  - The `Passenger` class has relationships with both the `Car` and `Train` classes (`Passenger`s board `Car`s as their means of using the `Train` to move around more efficiently).
  
  ## Step 1: The `Engine` class
@@ -48,7 +48,7 @@ Let's pause a moment to think about the different kinds of relationships we'll w
   - a `go()` which will decrease the current fuel level, print some useful information (e.g. remaining fuel level), and return `True` if the fuel level is above 0 and `False` otherwise.
 
 Remember, OOP is all about deciding which classes are responsible for which parts of the end solution. As you program, consider which of these attributes/methods should be `public`, and which should be `private`. These questions may be helpful to ask yourself:
- - Does **another class** need to be able to **read** this value? (If so, it could either be marked `public` or have an `accessor`)
+ - Does **another class** need to be able to **read** this value? (If so, it could either be marked `public` or have an `accessor`) 
  - Does **another class** need to be able to **modify** this value? (If so, it could either be marked `public` or have a `manipulator`)
 
  
