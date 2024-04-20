@@ -5,4 +5,16 @@ public class Passenger {
     public Passenger(String name) {
         this.name = name;
     }
+
+    public String getname(){
+        return this.name;
+    }
+
+    public boolean boardCar(Car c){
+        return c.addPassenger(this);
+    }
+
+    public boolean getOffCar(Car c){
+        return c.removePassenger(this);
+    }
 }
