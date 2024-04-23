@@ -36,7 +36,17 @@ public class Car {
      * @return
      */
     public boolean addPassenger(Passenger passenger) {
-        return this.passengers.add(passenger);
+        if (passengers.contains(passenger)) {
+            System.err.println("The passenger is already on board.");
+            return false;
+        } else {
+            if (passengers.size() < maxCapacity) {
+                this.passengers.add(passenger);
+                return true;
+            }
+            System.out.println("The car doesn't have available seats.");
+            return false;
+        }
     }
 
     /**
@@ -45,21 +55,21 @@ public class Car {
      * @param P remove specific passenger
      * @return
      */
-    public boolean removePassenger(Passenger P) {
-        this.passengers.remove(P);
-
-        if (this.passengers.contains(P)) {
+    public boolean removePassenger(Passenger passenger) {
+        if (passengers.contains(passenger)) {
+            this.passengers.remove(passenger);
+            System.out.println("The passenger is removed.");
             return true;
         } else {
+            System.out.println("The person is not in the car");
             return false;
         }
-
     }
 
     /**
      * Print manifest
      * If # of passenger is equal to 0, print "This car is EMPTY"
-     * Other wise, increment # of passengers and print passenger wth name 
+     * Other wise, increment # of passengers and print passenger wth name
      */
     public void printManifest() {
         if (passengers.size() == 0) {
