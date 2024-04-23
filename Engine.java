@@ -9,9 +9,10 @@ public class Engine {
 
     /**
      * Create Engine with fuel type, maximum fuel level , and current fuel level
-     * @param fueltype 
-     * @param max maximum fuel level
-     * @param current current fuel level 
+     * 
+     * @param fueltype
+     * @param max      maximum fuel level
+     * @param current  current fuel level
      */
     public Engine(FuelType fueltype, double max, double current) {
         this.fueltype = fueltype;
@@ -21,12 +22,20 @@ public class Engine {
 
     /**
      * Define fuel type
-     * Accessor 
+     * Accessor
      * 
      * @return
      */
-    public FuelType getfFuelType() {
-        return fueltype;
+    public FuelType getFuelType() {
+        return this.fueltype;
+    }
+
+    public double getMax() {
+        return this.max;
+    }
+
+    public double getCurrent() {
+        return this.current;
     }
 
     /* Define refuel: when current fuel level equal to maximum fuel level, refuel */
@@ -42,13 +51,18 @@ public class Engine {
      * @return
      */
     public boolean go() {
-        current = current - 10;
-        System.out.println("current level: " + current);
+        if (this.current >= 10) {
+            current = current - 10;
+            System.out.println("Fuel level: " + current);
+        } else {
+            System.out.println("There is no fuel available");
+        }
+
         if (current > 0) {
             return true;
         } else {
             return false;
-        }
+        } 
     }
 
     /**
@@ -61,19 +75,19 @@ public class Engine {
      *             Create an arraylist to include a passeeger called Charlie Brown
      */
     public static void main(String[] args) {
-        Engine myEngine = new Engine(this.fueltype, 1000.0, 100.0);
-        if (myEngine.go()) {                   
+        Engine myEngine = new Engine(FuelType.ELECTRIC, 1000.0, 100.0);
+        if (myEngine.go()) {
             System.out.println("Choo choo!");
-        }else{
+        } else {
             System.out.println("Out of fuel.");
         }
 
-       // ArrayList<Passenger> passengers = new ArrayList<Passenger>();
-       // Passenger p = new Passenger("Charlie Brown");
-       // passengers.add(p);
-        //Car C = new Car(passengers);
+        // ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+        // Passenger p = new Passenger("Charlie Brown");
+        // passengers.add(p);
+        // Car C = new Car(passengers);
 
-       // C.printManifest();
+        // C.printManifest();
     }
 
 }
